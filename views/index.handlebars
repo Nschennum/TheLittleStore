@@ -1,0 +1,30 @@
+<section class="py-2">
+  <div class="row">
+    <div class="col-md-6 text-center">
+      <h1 class="display-3 mt-3 py-5">
+        Maps of Meaning
+      </h1>
+      <p class="lead">the architecture of belief</p>
+      <form action="/charge" method="POST">
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="{{stripePublishableKey}}"
+    data-amount="2500"
+    data-name="Maps of Meaning"
+    data-description="Book by Jordan Peterson"
+    data-image="/img/marketplace.png"
+    data-locale="auto"
+    data-zip-code="true"
+    data-shipping-address="true">
+  </script>
+  <script>
+    // Hide stripe button
+    document.getElementsByClassName('stripe-button-el')[0].style.display= 'none';
+  </script>
+  <button type="submit" class="btn-dark btn-outline-dark text-white btn-lg">Purchase for $25</button>
+</form>
+    </div>
+  <col class="md-6">
+  <img src="/img/book.png" alt="" class="img-fluid">
+  </div>
+</section>
