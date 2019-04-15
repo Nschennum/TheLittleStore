@@ -1,0 +1,17 @@
+{
+  "name": "littlestore",
+  "version": "1.0.0",
+  "description": "App for sales",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "Natalie Schennum",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "express-handlebars": "^3.0.2",
+    "stripe": "^6.28.0"
+  }
+}
