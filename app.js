@@ -1,5 +1,6 @@
 const express = require('express');
-const stripe = require('stripe')('sk_test_ehkZK6l3wTgLOWXvOVRFHwl300zx24yxoG');
+const keys = require('./config/keys')
+const stripe = require('stripe')(keys.stripeSecretKey);
 const bodyParser = require('body-parser'); 
 const exphbs = require('express-handlebars'); 
 
@@ -17,7 +18,29 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(express.static(`${__dirname}/public`));
 
 app.get('/', (req, res) => {
-  res.render('index'); 
+  res.render('index', {
+    stripePublishableKey: keys.stripePublishableKey
+  }); 
+});
+
+app.get('/success', (req, res) => {
+  res.render('success'); 
+});
+
+// Charge route
+app.post('/change', (req, res) => {
+  const amount = 2500;
+  stripe.customer.create({
+    email: req.body.stripeEmail,
+    source: req.body.stripeToken
+})
+.then(customer => stripe.charges.create({
+  amount, 
+  description:'Book by Jordan Peterson', 
+  currency: 'usd', 
+  customer: customer.id
+}))
+.then(charge => res.render('success'));
 });
 
 const port = process.env.PORT || 5000;
