@@ -5,4 +5,6 @@ Stripe is ideal for a person or business selling just a few items because, like 
 but does not have a lot of the overhead charges that Paypal requires. 
 
 The app is set up to securely take credit card payments and obtain the users shipping information.   
+
+Check it out: https://little-store.herokuapp.com/
      
